@@ -1,0 +1,52 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<p><img src="{{ url_for('static', filename='logo.jpg') }}"></p>
+
+<p></p>
+<form method=post action="/insert">
+<p><input type="text" class="form-control" name="inputTitle" style="width:100%;"/></p>
+<p><textarea name="textContent" style="width:100%;"></textarea></p>
+<p><input type="submit" value="input" style="width:100%;"></p>
+</form>
+<p></p>
+
+
+{% for data in pagesData %}
+	
+	<div style="width:100%; border:1px solid #000000;">
+
+	<div style="width:100%; border:1px solid #000000; background-color:#f7f7f7">
+	<p>{{data['title']}}</p>
+	<p></p>
+	</div>
+	<div>
+	<p>{{data['content']}}</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	</div>
+	<form method=post action="/delete">
+		<input type="hidden" value="{{data['_id']}}" name="pageID">
+		<p><input type="submit" value="delete" style="width:100%;"></p>
+	</form>
+	<form method=post action="/modify">
+		<input type="hidden" value="{{data['_id']}}" name="pageID">
+		<p><input type="submit" value="modify" style="width:100%;"></p>
+	</form>
+	</div>
+
+
+	<p></p>
+
+{% endfor %}
+
+
+
+</body>
+
+</html>
