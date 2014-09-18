@@ -3,10 +3,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 
-public class LongMaker {
+public class LongMaker implements URLMaker {
 
-	protected static MessageDigest md5 = null;
-	protected static Random rand = new Random();
+	private static MessageDigest md5 = null;
+	private static Random rand = new Random();
 	
 	
 	LongMaker() {
@@ -17,7 +17,7 @@ public class LongMaker {
 		}
 	}
 	
-	protected String getMd5( String data ) {
+	private String getMd5( String data ) {
 		md5.update(data.getBytes()); 
 		byte byteData[] = md5.digest();
 		StringBuffer sb = new StringBuffer(); 
@@ -27,7 +27,7 @@ public class LongMaker {
 		return sb.toString();
 	}
 	
-	protected String getRandomUrl() {
+	private String getRandomUrl() {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append( getMd5(System.nanoTime()+"") );
@@ -36,4 +36,12 @@ public class LongMaker {
 		return sb.toString();
 
 	}
+
+	
+	
+	@Override
+	public String getUrl() {
+		return getRandomUrl();
+	}
+	
 }

@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MySqlHelper {
+public class MySqlHelper implements DBHelper {
 
 	private static final String DB_URL = "jdbc:mysql://mysql3.hosting.bizfree.kr/scope_db?noAccessToProcedureBodies=true";
 	private static final String DB_ID = "id";
@@ -12,6 +12,7 @@ public class MySqlHelper {
 	
 	private static Connection dbConn;
 	
+	@Override
 	public boolean Initializer() {
 		
 		try {
@@ -33,7 +34,7 @@ public class MySqlHelper {
 	}
 	
 	
-	
+	@Override
 	public boolean insertDB(String longUrl, String realUrl, String password) {
 		String query = "INSERT INTO LONG_URL_CHANGER(longUrl,realUrl,password) VALUES(?,?,?);";
 		
@@ -58,6 +59,8 @@ public class MySqlHelper {
 		return true;
 	}
 	
+	
+	@Override
 	public String selectDB(String longUrl, String password) {
 		String query = "select realUrl from LONG_URL_CHANGER where (longUrl = ?) AND (password = ?)";
 		try {
