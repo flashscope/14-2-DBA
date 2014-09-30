@@ -1,9 +1,13 @@
 
 public class TestMain {
 
+	
 	public static void main(String[] args) {
 		LongMaker maker = new LongMaker();
-		MySqlHelper dbHelper = new MySqlHelper();
+		
+		DBHelper dbHelper = new MySqlHelper();
+		//DBHelper dbHelper = new RedisHelper();
+		
 		dbHelper.Initializer();
 		
 		//String longUrl = maker.getRandomUrl();
