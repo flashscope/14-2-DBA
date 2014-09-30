@@ -4,6 +4,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
+CREATE TABLE IF NOT EXISTS `LONG_URL_CHANGER` (
+  `_idx` int(11) NOT NULL auto_increment,
+  `longUrl` varchar(150) NOT NULL,
+  `realUrl` text NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY  (`_idx`),
+  UNIQUE KEY `longUrl` (`longUrl`)
+) ENGINE=InnoDB;
+*/
+
+
 public class MySqlHelper implements DBHelper {
 
 	private static final String DB_URL = "jdbc:mysql://mysql3.hosting.bizfree.kr/scope_db?noAccessToProcedureBodies=true";
