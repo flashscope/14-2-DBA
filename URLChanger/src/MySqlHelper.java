@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS `LONG_URL_CHANGER` (
 
 public class MySqlHelper implements DBHelper {
 
-	private static final String DB_URL = "jdbc:mysql://mysql3.hosting.bizfree.kr/scope_db?noAccessToProcedureBodies=true";
-	private static final String DB_ID = "id";
-	private static final String DB_PASS = "pass";
+	private static final String DB_URL = "jdbc:mysql://10.73.45.74/scope_db?noAccessToProcedureBodies=true";
+	private static final String DB_ID = "popi";
+	private static final String DB_PASS = "db1004";
 	
 	private static Connection dbConn;
 	
